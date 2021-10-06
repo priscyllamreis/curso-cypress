@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-09-03T15:08:22.858Z",
+    "end": "2021-09-03T15:08:23.432Z",
+    "duration": 574,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "48cc18fd-bc0a-412e-a735-19862fd4cec4",
+      "title": "",
+      "fullFile": "cypress/integration/produto.spec.js",
+      "file": "cypress/integration/produto.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5d84220b-83a1-4a9f-8aa5-e0dab1ed3881",
+          "title": "Teste da funcionalidade produtos",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Deve deletar um produto previamente ja cadastrado",
+              "fullTitle": "Teste da funcionalidade produtos Deve deletar um produto previamente ja cadastrado",
+              "timedOut": null,
+              "duration": 432,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let produto = `Produto novo ${Math.random() * 1000000}`;\ncy.cadastrarProdutos(token, produto, 250, \"Novo produto\", 100).then(response => {\n  let id = response.body._id;\n  cy.request({\n    method: 'DELETE',\n    url: `produtos/${id}`,\n    headers: {\n      authorization: token\n    }\n  }).then(response => {\n    expect(response.body.message).to.equal('Registro excluído com sucesso');\n    expect(response.status).to.equal(200);\n  });\n});",
+              "err": {},
+              "uuid": "82ab9990-d921-4d0f-83fa-309e4fb2fa1e",
+              "parentUUID": "5d84220b-83a1-4a9f-8aa5-e0dab1ed3881",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "82ab9990-d921-4d0f-83fa-309e4fb2fa1e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 432,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "mochawesome-report",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.2.0"
+    }
+  }
+}
